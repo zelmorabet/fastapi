@@ -3,21 +3,23 @@ from pydantic import BaseModel
 
 
 app = FastAPI()
-
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 class Student (BaseModel):
     id : int
     name : str
     grade : int
 
-
 Students = [
     Student(id= 1, name= "zakaria", grade=6),
     Student(id= 2, name= "soulayman", grade=3)
 ]
-
-@app.get("/profs")
-def read_profs():
-    return Prof
 
 @app.get("/students")
 def read_students():
