@@ -9,10 +9,6 @@ class Student (BaseModel):
     name : str
     grade : int
 
-class Prof (BaseModel):
-    id : int
-    name : str
-    grade : int
 
 Students = [
     Student(id= 1, name= "zakaria", grade=6),
